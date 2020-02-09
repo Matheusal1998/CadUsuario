@@ -2,5 +2,33 @@
     ViewData["Title"] = "Privacy Policy";
 }
 <h1>@ViewData["Title"]</h1>
+<div class="" ng-controller="usuarioCtrl">
 
-<p>Use this page to detail your site's privacy policy.</p>
+    <div> Listagem de de Usuario</div>
+    <table class="table table-danger">
+        <thead style="background-color:aliceblue">
+            <tr>
+                <td>Id</td>
+                <td>Nome</td>
+                <td>Email</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="user in Usuario">
+                <td>{{user.Id}}</td>
+                <td>{{user.Nome}}</td>
+                <td>{{user.Email}}</td>
+                <td style="width:200px;">
+                    <a href="#" class="btn btn-info">Atualizar</a>
+                    <a href="#" class="btn btn-danger">Excluir</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+@section scripts{
+    <script src="~/AngularJsApp/Usuario/Model.js"></script>
+    <script src="~/AngularJsApp/Usuario/Service.js"></script>
+    <script src="~/AngularJsApp/Usuario/Controller.js"></script>
+ }

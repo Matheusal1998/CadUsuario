@@ -74,5 +74,21 @@ namespace Teste_CRUD.Controllers
 
             return View(usuario);
         }
+
+        public JsonResult ListaUsuario(string busca)
+        {
+            List<Usuario> ListaUsuaro = new List<Usuario>();
+            ListaUsuaro = _UsuarioDAL.GetAllUsuario().ToList();
+
+            if (busca != null)
+            {
+                return Json(ListaUsuaro.Where(x => x.NomeCompleto.Contains(busca)).ToList());
+            }
+            else
+            {
+                return Json(ListaUsuaro);
+            }
+
+        }
     }
 }
